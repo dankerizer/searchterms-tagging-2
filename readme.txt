@@ -6,6 +6,8 @@ Requires at least: 2.5
 Tested up to: 3.2.1
 Stable tag: 1.535
 
+Edited by : Hadie Danker
+On : https://github.com/dankerizer/searchterms-tagging-2
 Multiply blog traffic by strengthening on page SEO, increasing the number of indexed pages, auto convert search terms into post tags, and more.
 
 == Description ==
