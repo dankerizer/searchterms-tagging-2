@@ -655,7 +655,7 @@ function pk_stt2_db_get_number_of_posts_wo_traffic(){
 		global $wpdb;
 		$sql = "SELECT count(`ID`) FROM $wpdb->posts WHERE `post_status` = 'publish' AND `post_type` = 'post' AND ID NOT IN ( 
 			SELECT post_id FROM ".$wpdb->prefix."stt2_meta );";
-		$post_count = $wpdb->get_var($wpdb->prepare( $sql ));	
+		$post_count = $wpdb->get_var( $sql );	
 		wp_cache_set( 'stt2_number_of_posts_wo_traffic', $post_count, 86400 );
 	} 		
 	return $post_count;
@@ -668,7 +668,7 @@ function pk_stt2_db_get_id_post_wo_traffic(){
 	global $wpdb;
 	$sql = "SELECT `ID` FROM $wpdb->posts WHERE `post_status` = 'publish' AND `post_type` = 'post' AND ID NOT IN ( 
 		SELECT post_id FROM ".$wpdb->prefix."stt2_meta WHERE `post_id` != 0 ) LIMIT 1;";
-	$post_ID = $wpdb->get_var($wpdb->prepare( $sql ));	
+	$post_ID = $wpdb->get_var( $sql);	
 	return $post_ID;
 }
 /**
@@ -679,7 +679,7 @@ function pk_stt2_db_get_last_promoted_post_title( $id ){
 	if ( false == $post_title ) {
 		global $wpdb;
 		$sql = "SELECT `post_title` FROM $wpdb->posts WHERE `ID` = $id;";
-		$post_title = $wpdb->get_var($wpdb->prepare( $sql ));	
+		$post_title = $wpdb->get_var($sql );	
 		wp_cache_set( 'stt2_last_promoted_post_title_'.$id, $post_title );
 	} 			
 	return $post_title;	
@@ -692,7 +692,7 @@ function pk_stt2_db_get_number_of_posts(){
 	if ( false == $post_count ) {
 		global $wpdb;
 		$sql = "SELECT count(`ID`) FROM $wpdb->posts WHERE `post_status` = 'publish' AND `post_type` = 'post';";
-		$post_count = $wpdb->get_var($wpdb->prepare( $sql ));	
+		$post_count = $wpdb->get_var($sql);	
 		wp_cache_set( 'stt2_get_number_of_posts'.$id, $post_count, 3600 );
 	} 				
 	return $post_count;
